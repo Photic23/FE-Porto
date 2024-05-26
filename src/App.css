@@ -18,14 +18,27 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #fff;
+  z-index: 2;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
+}
+
+.Footer {
+  font-weight: 500;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 2.5vh;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
 }
 
 .App-link {
@@ -47,4 +60,51 @@
 
 .button-inaktif{
   background-color: blue;
+}
+
+.center-container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.typewriter{
+  justify-content: center;
+  align-items: center;
+  font-size: 6em;
+  height: 80px;
+  line-height: 80px;
+  width: 100%;
+}
+
+.first-container{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  font-weight: 800;
+  color: black;
+  
+}
+
+.Footer-container{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.contact-logo{
+  width: 32px;
+  height: auto;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.contact-container{
+  display: flex;
+  flex-direction: row;
 }
