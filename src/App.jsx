@@ -11,7 +11,7 @@ class app extends Component {
   }
 
   callAPI() {
-    fetch("http://localhost:9000/testAPI")
+    fetch("https://be-porto-5ne6kgpxu-photic23s-projects.vercel.app/testAPI")
         .then(res => res.json())
         .then(res => this.setState({ apiResponse: res }));
        
