@@ -11,7 +11,7 @@ class app extends Component {
   }
 
   callAPI() {
-    fetch("https://be-porto-gsya6f5yh-photic23s-projects.vercel.app/testAPI/", {mode: "no-cors"})
+    fetch("https://be-porto-gsya6f5yh-photic23s-projects.vercel.app/testAPI/")
         .then(res => res.json())
         .then(res => this.setState({ apiResponse: res }));
        
