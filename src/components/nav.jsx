@@ -24,7 +24,7 @@ function Nav({isFiller}){
             <nav  class="fixed  w-full px-2 py-2" ref={refContainer}>
                 <div class=" bg-white w-full inline-flex justify-between rounded border-2 border-black px-1 py-1">
                     <div class="buttonName">
-                        <Namebutton text={"Photic"}></Namebutton>
+                        <Namebutton text={"Photic"} link={"#first-container"}></Namebutton>
                     </div>
                     <div class="items-center inline-flex">
                         <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"}/>
