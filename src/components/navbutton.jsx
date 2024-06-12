@@ -1,33 +1,57 @@
 import React, {Component} from 'react';
 import { useState } from 'react';
+import "../App.css";
 
 
-function Navbutton() {
+function Navbutton({text, japText, isContact, link, target}) {
     const [isSelected, setIsSelected] = useState(false);
     
     function handleClick(){
         setIsSelected(prevIsSelected => !prevIsSelected)
     }
-    if(isSelected){
-        return (
-            <div>
-                <button onClick={handleClick} className="button-aktif ">
-                    {isSelected ? 'Selected' : 'Not Selected'}
-                </button>
-                <p>The button is {isSelected ? 'selected' : 'not selected'}.</p>
-            </div>
-        );
+
+    if(!isContact){
+        if(!isSelected){
+            return (
+                <div class="mx-0.5">
+                    <a onMouseEnter={handleClick} onMouseLeave={handleClick} class="" href={link} target={target}>
+                        <span class="fold-bold  inline-flex items-center justify-center h-full w-32 rounded border-2 border-black bg-white px-2 py-1  text-base font-bold text-black">{text}</span>
+                    </a>
+                </div>
+    
+            );
+        }
+        else{
+            return (
+                <div class="mx-0.5">
+                    <a onMouseEnter={handleClick} onMouseLeave={handleClick} class="" href={link} target={target}>
+                        <span class="fold-bold  inline-flex items-center justify-center h-full w-32 rounded border-2 border-black bg-black px-2 py-1 text-base font-bold text-white">{japText}</span>
+                    </a>
+                </div>
+            );
+        }
+    }else{
+        if(isSelected){
+            return (
+                <div class="mx-0.5">
+                    <a onMouseEnter={handleClick} onMouseLeave={handleClick} class="" href={link} target={target}>
+                        <span class="fold-bold  inline-flex items-center justify-center h-full w-32 rounded border-2 border-black bg-white px-2 py-1  text-base font-bold text-black">{japText}</span>
+                    </a>
+                </div>
+    
+            );
+        }
+        else{
+            return (
+                <div class="mx-0.5">
+                    <a onMouseEnter={handleClick} onMouseLeave={handleClick} class="" href={link} target={target}>
+                        <span class="fold-bold  inline-flex items-center justify-center h-full w-32 rounded border-2 border-black bg-black px-2 py-1 text-base font-bold text-white">{text}</span>
+                    </a>
+                </div>
+            );
+        }
     }
-    else{
-        return (
-            <div>
-                <button onClick={handleClick} className="button-inaktif rounded">
-                    {isSelected ? 'Selected' : 'Not Selected'}
-                </button>
-                <p>The button is {isSelected ? 'selected' : 'not selected'}.</p>
-            </div>
-        );
-    }
+
 }
 
 
