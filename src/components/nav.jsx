@@ -2,55 +2,115 @@ import React, {Component} from 'react';
 import { useState, useEffect, useRef } from 'react';
 import Navbutton from './navbutton';
 import Namebutton from './namebutton';
+import PopButton from './popButton';
 
 
-function Nav({isFiller}){
-    const refContainer = useRef();
-    const [dimensions, setDimensions] = useState({
-        width: 0,
-        height: 0,
-    });
+function Nav({isSmall}){
+    const [openedNav, setOpenedNav] = React.useState(false)
+
+    const [width, setWidth] = useState(null)
+    const ref = useRef(null)
+
+    function toggleOpenedNav() {
+        setOpenedNav(prevOpenedNav => !prevOpenedNav)
+    }
+    
+    
     useEffect(() => {
-        if (refContainer.current) {
-            setDimensions({
-                width: refContainer.current.offsetWidth,
-                height: refContainer.current.offsetHeight,
-            });
+        if(ref.current.offsetWidth!=null){
+            setWidth(ref.current.offsetWidth)
+        }else{
+            setWidth(0)
         }
-    }, []);
+        
+    })
 
-    if(!isFiller){
+    if(!isSmall){
         return(
-            <nav  class="fixed  w-full px-2 py-2" ref={refContainer}>
-                <div class=" bg-white w-full inline-flex justify-between rounded border-2 border-black px-1 py-1">
-                    <div class="buttonName">
-                        <Namebutton text={"Photic"} link={"#first-container"}></Namebutton>
-                    </div>
-                    <div class="items-center inline-flex">
-                        <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"}/>
-                        {/* <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"}/>
-                        <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"}/> */}
-                        <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true} link={"https://wa.me/+6281907398637"} target={"_blank"}/>
+            <>
+                {/* popped up nav */}
+                <div class="hidden fixed h-svh w-full px-2 py-2" id='first-container'>
+                    <div class="h-full w-full flex items-center justify-center rounded bg-white border-2 border-black py-1">
+                        <div class="flex flex-col items-center justify-center w-full"  ref={ref}>
+                            <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"} isPop={true} width={width}/>
+                            <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true} link={"https://wa.me/+6281907398637"} target={"_blank"} isPop={true} width={width}></Navbutton>
+                        </div>
                     </div>
                 </div>
-            </nav>
+                {/* popped up nav */}
+                <nav  className="fixed  w-full px-2 py-2" >
+                    <div class=" bg-white w-full inline-flex justify-between rounded border-2 border-black px-1 py-1">
+                        <div class="buttonName">
+                            <Namebutton text={"Photic"} link={"#first-container"}></Namebutton>
+                        </div>
+                        <div class="items-center inline-flex">
+                            <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"} isPop={false}/>
+                            {/* <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"}/>
+                            <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"}/> */}
+                            <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true} link={"https://wa.me/+6281907398637"} target={"_blank"} isPop={false}/>
+                        </div>
+                    </div>
+                </nav>
+            </>
         );
-    }else{
-        return(
-            <nav style={{visibility: 'hidden'}} class="fixed top-0 w-full px-2 py-2">
-                <div class="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1">
-                    <div class="buttonName">
-                        <Namebutton text={"Photic"}></Namebutton>
+    }
+    else if(isSmall){
+        if(!openedNav){
+            return(
+                <>
+                {/* popped up nav */}
+                    <div class="fixed h-svh w-full px-2 py-2" id='first-container'>
+                        <div class="h-full w-full flex items-center justify-center rounded bg-white border-2 border-black py-1">
+                            <div class="flex flex-col items-center justify-center w-full"  ref={ref}>
+                                <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"} isPop={true} width={width}/>
+                                <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true} link={"https://wa.me/+6281907398637"} target={"_blank"} isPop={true} width={width}></Navbutton>
+                            </div>
+                        </div>
                     </div>
-                    <div class="items-center inline-flex">
-                        <Navbutton text={"About Me"} japText={"自分"} isContact={false}/>
-                        <Navbutton text={"About Me"} japText={"自分"}/>
-                        <Navbutton text={"About Me"} japText={"自分"}/>
-                        <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true}/>   
+                    {/* popped up nav */}
+                    <nav  class="fixed  w-full px-2 py-2" >
+                        <div class=" bg-white w-full inline-flex justify-between rounded border-2 border-black px-1 py-1">
+                            <div class="buttonName">
+                                <Namebutton text={"Photic"} link={"#first-container"}></Namebutton>
+                            </div>
+                            <div class="items-center inline-flex">                        
+                                <PopButton toggleButton={toggleOpenedNav} isActive={openedNav} ></PopButton>
+                            </div>
+                        </div>
+                    </nav>
+                    
+                </>
+
+    
+            ); 
+        }else{
+            return(
+                <>
+                {/* popped up nav */}
+                    <div class="hidden fixed h-svh w-full px-2 py-2" id='first-container'>
+                        <div class="h-full w-full flex items-center justify-center rounded bg-white border-2 border-black py-1">
+                            <div class="flex flex-col items-center justify-center w-full"  ref={ref}>
+                                <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"} isPop={true} width={width}/>
+                                <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true} link={"https://wa.me/+6281907398637"} target={"_blank"} isPop={true} width={width}></Navbutton>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        );        
+                    {/* popped up nav */}
+                    <nav  class="fixed  w-full px-2 py-2" >
+                        <div class=" bg-white w-full inline-flex justify-between rounded border-2 border-black px-1 py-1">
+                            <div class="buttonName">
+                                <Namebutton text={"Photic"} link={"#first-container"}></Namebutton>
+                            </div>
+                            <div class="items-center inline-flex ">
+                                <PopButton toggleButton={toggleOpenedNav} isActive={openedNav} ></PopButton>                            
+                            </div>
+                        </div>
+                    </nav>
+
+                </>
+            ); 
+        }
+       
     }
 
 }
