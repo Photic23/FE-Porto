@@ -6,7 +6,7 @@ import PopButton from './popButton';
 
 
 function Nav({isSmall}){
-    const [openedNav, setOpenedNav] = React.useState(false)
+    const [openedNav, setOpenedNav] = React.useState(true)
 
     const [width, setWidth] = useState(null)
     const ref = useRef(null)
