@@ -39,7 +39,7 @@ if(navSmall){
                             {/* bottom container */}
                             <div class="p-1 w-11/12 border-b-4 border-black">
                                 <h1 class="text-lg font-bold">Hi, I am Photic</h1>
-                                <div class="typewriter-text">
+                                <div class="typewriter-text-sm">
                                     <Typewriter
                                         class="text-4xl font-semibold"
                                         options={{
