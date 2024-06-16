@@ -15,7 +15,7 @@ function Nav({isSmall}){
         setOpenedNav(prevOpenedNav => !prevOpenedNav)
     }
     
-    
+
     useEffect(() => {
         if(ref.current.offsetWidth!=null){
             setWidth(ref.current.offsetWidth)
@@ -29,7 +29,7 @@ function Nav({isSmall}){
         return(
             <>
                 {/* popped up nav */}
-                <div class="hidden fixed h-svh w-full px-2 py-2" id='first-container'>
+                <div class="hidden fixed h-svh w-full px-2 py-2" >
                     <div class="h-full w-full flex items-center justify-center rounded bg-white border-2 border-black py-1">
                         <div class="flex flex-col items-center justify-center w-full"  ref={ref}>
                             <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"} isPop={true} width={width}/>
@@ -59,11 +59,16 @@ function Nav({isSmall}){
             return(
                 <>
                 {/* popped up nav */}
-                    <div class="fixed h-svh w-full px-2 py-2" id='first-container'>
+                    <div class="fixed h-svh w-full px-2 py-2" >
                         <div class="h-full w-full flex items-center justify-center rounded bg-white border-2 border-black py-1">
                             <div class="flex flex-col items-center justify-center w-full"  ref={ref}>
-                                <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"} isPop={true} width={width}/>
-                                <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true} link={"https://wa.me/+6281907398637"} target={"_blank"} isPop={true} width={width}></Navbutton>
+                                <a href="#first-container">
+                                    <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"} target={"_self"} isPop={true} width={width} clickFunc={toggleOpenedNav}/>
+                                </a>
+                                <a href="https://wa.me/+6281907398637">
+                                    <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true} link={"https://wa.me/+6281907398637"} target={"_blank"} isPop={true} width={width} clickFunc={toggleOpenedNav}></Navbutton>
+                                </a>
+                                
                             </div>
                         </div>
                     </div>
@@ -86,8 +91,8 @@ function Nav({isSmall}){
         }else{
             return(
                 <>
-                {/* popped up nav */}
-                    <div class="hidden fixed h-svh w-full px-2 py-2" id='first-container'>
+                {/* popped up nav but hidden */}
+                    <div class="hidden fixed h-svh w-full px-2 py-2" >
                         <div class="h-full w-full flex items-center justify-center rounded bg-white border-2 border-black py-1">
                             <div class="flex flex-col items-center justify-center w-full"  ref={ref}>
                                 <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#first-container"} isPop={true} width={width}/>

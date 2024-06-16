@@ -3,12 +3,19 @@ import { useState } from 'react';
 import "../App.css";
 
 
-function Navbutton({text, japText, isContact, link, target, isPop, width}) {
+function Navbutton({text, japText, isContact, link, target, isPop, width, clickFunc}) {
     const [isSelected, setIsSelected] = useState(false);
     
-    function handleClick(){
+    //terlanjur dinamain handleclick wkwk
+    function handleClick(){ 
         setIsSelected(prevIsSelected => !prevIsSelected)
     }
+
+    function realHandleClick(){
+        
+    }
+
+
     if(!isPop){
         if(!isContact){
             if(!isSelected){
@@ -55,7 +62,7 @@ function Navbutton({text, japText, isContact, link, target, isPop, width}) {
         if(!isSelected){
             return (
                 <div class="" style={{width: width}}>
-                    <a onMouseEnter={handleClick} onMouseLeave={handleClick} class="" href={link} target={target} >
+                    <a onMouseEnter={handleClick} onMouseLeave={handleClick} class="" href={link} target={target} onClick={clickFunc} >
                         <span class="fold-bold  inline-flex items-center justify-center h-full w-full border-1 border-black bg-white px-2 py-1 text-xl font-bold text-black">{text}</span>
                     </a>
                 </div>
@@ -65,7 +72,7 @@ function Navbutton({text, japText, isContact, link, target, isPop, width}) {
         else{
             return (
                 <div class="" style={{width: width}}>
-                    <a onMouseEnter={handleClick} onMouseLeave={handleClick} class="" href={link} target={target} >
+                    <a onMouseEnter={handleClick} onMouseLeave={handleClick} class="" href={link} target={target} onClick={clickFunc} >
                         <span class="fold-bold  inline-flex items-center justify-center h-full w-full border-1 border-black bg-black px-2 py-1 text-xl font-bold text-white">{japText}</span>
                     </a>
                 </div>
