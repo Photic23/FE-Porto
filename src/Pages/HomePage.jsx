@@ -67,7 +67,6 @@ if(navSmall){
             <div class="h-svh w-full px-2 py-2">
                 <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1">
                     <p class="text-4xl font-semibold mx-1">This site is under development </p>
-                    <a href="#first-container">tes</a>
                 </div>
                                         
             </div>

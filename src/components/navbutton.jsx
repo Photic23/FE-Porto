@@ -11,9 +11,6 @@ function Navbutton({text, japText, isContact, link, target, isPop, width, clickF
         setIsSelected(prevIsSelected => !prevIsSelected)
     }
 
-    function realHandleClick(){
-        
-    }
 
 
     if(!isPop){
