@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import Navbutton from './navbutton';
 import Namebutton from './namebutton';

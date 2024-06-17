@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 function Footer() {
     return(

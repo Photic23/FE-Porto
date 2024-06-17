@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import { useState } from 'react';
+import React from 'react';
 import GamingHutao from'../GamingHutao.jpg';
 import Navbutton from '../components/navbutton';
 import Typewriter from 'typewriter-effect';
@@ -16,7 +15,7 @@ function Card({page, isSmall}) {
     if(isSmall){
         if(page==="About Me"){
             return(
-                <div class="h-svh w-full px-2 py-2" id='first-container'>
+                <div class="bg-white h-svh w-full px-2 py-2" id='first-container'>
                     <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1">
                         <div class="flex flex-col items-center justify-center">
                             <div class="flex h-40 w-max items-end justify-start mb-2">
@@ -73,7 +72,7 @@ function Card({page, isSmall}) {
     }else if(!isSmall){
         if(page==="About Me"){
             return(
-                <div class="h-svh w-full px-2 py-2" id='first-container' >
+                <div class="bg-white h-svh w-full px-2 py-2" id='first-container' >
                     <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1">
                         <div class="flex items-center justify-center">
                             <div class="flex flex-col h-72 w-2/5 items-start justify-between px-5">

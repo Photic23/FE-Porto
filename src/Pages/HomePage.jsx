@@ -1,9 +1,5 @@
-import React, {Component} from 'react';
-import { useState } from 'react';
+import React from 'react';
 import Nav from '../components/nav';
-import Typewriter from 'typewriter-effect';
-import GamingHutao from'../GamingHutao.jpg';
-import Navbutton from '../components/navbutton';
 import { useMediaQuery } from "@uidotdev/usehooks";
 import Card from '../components/Card';
 import Footer from '../components/Footer';
