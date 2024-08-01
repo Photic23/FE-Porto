@@ -3,6 +3,7 @@ import Nav from '../components/nav';
 import { useMediaQuery } from "@uidotdev/usehooks";
 import Card from '../components/Card';
 import Footer from '../components/Footer';
+import wavePick from '../stacked-waves.svg';
 
 
 function HomePage() {
@@ -25,20 +26,32 @@ const [page, setPage] = React.useState("About Me");
 if(navSmall){
     return( 
         <>
-            <Nav isSmall={navSmall} changePage={setPage} ></Nav>
-            <Footer></Footer>
-            {/* first container */}
-            <Card page={page} isSmall={navSmall}></Card>
+            <div className='relative h-full w-full'>
+                <div className='relative z-10 flex flex-row h-full w-full'>
+                    <Nav isSmall={navSmall} changePage={setPage} ></Nav>
+                    <Footer></Footer>
+                    {/* first container */}
+                    <Card page={page} isSmall={navSmall}></Card>
+                </div>
+                <img src={wavePick} alt="" className='absolute z-0 bottom-0 h-full w-full object-cover'/>
+            </div>
+
             
         </>
     );
 }else{
     return( 
         <>
-            <Nav isSmall={navSmall} changePage={setPage}></Nav>
-            <Footer></Footer>
-            {/* first container */}
-            <Card page={page} isSmall={navSmall}></Card>
+            <div className='relative h-full w-full'>
+                <div className='relative z-10 flex flex-row h-full w-full'>
+                    <Nav isSmall={navSmall} changePage={setPage}></Nav>
+                    <Footer></Footer>
+                    {/* first container */}
+                    <Card page={page} isSmall={navSmall}></Card>
+               </div>
+               <img src={wavePick} alt="" className='absolute z-0 bottom-0 h-full w-full object-cover'/>
+            </div>
+
         </>
     );    
 }

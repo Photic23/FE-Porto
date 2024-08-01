@@ -19,7 +19,7 @@ function Button({text, japText, href, target, passFunc, isActive}) {
                 <>
                     <div>
                         <a target={target} href={href} onMouseEnter={hoverButton} onMouseLeave={hoverButton} onClick={clickFuncMail}>
-                            <span class={isSelected?"text-lg fold-bold  inline-flex items-center justify-center h-full w-full rounded border-2 border-black bg-black px-2 my-1 text-base font-bold text-white":"text-lg fold-bold  inline-flex items-center justify-center h-full w-full rounded border-2 border-black bg-white px-2 my-1 text-base font-bold text-black"}><img src="" alt="" />{isSelected?japText:text}</span>
+                            <span class={isSelected?"text-lg fold-bold  inline-flex items-center justify-center h-full w-full rounded border-2 border-black bg-[#404a41] px-2 my-1 text-base font-bold text-white":"text-lg fold-bold  inline-flex items-center justify-center h-full w-full rounded border-2 border-black bg-[#627264] px-2 my-1 text-base font-bold text-black"}><img src="" alt="" />{isSelected?japText:text}</span>
                         </a>
                     </div>
                 </>
@@ -29,7 +29,7 @@ function Button({text, japText, href, target, passFunc, isActive}) {
             <>
                 <div>
                     <a target={target} href={href} onMouseEnter={hoverButton} onMouseLeave={hoverButton} onClick={clickFuncMail}>
-                        <span class={isSelected?"text-lg fold-bold inline-flex items-center justify-center h-full w-full rounded border-2 border-black bg-white px-2 my-1 text-base font-bold text-black":"text-lg fold-bold  inline-flex items-center justify-center h-full w-full rounded border-2 border-black bg-black px-2 my-1 text-base font-bold text-white"}><img src="" alt="" />{isSelected?text:japText}</span>
+                        <span class={isSelected?"text-lg fold-bold inline-flex items-center justify-center h-full w-full rounded border-2 border-black bg-[#627264] px-2 my-1 text-base font-bold text-black":"text-lg fold-bold  inline-flex items-center justify-center h-full w-full rounded border-2 border-black bg-[#404a41] px-2 my-1 text-base font-bold text-white"}><img src="" alt="" />{isSelected?text:japText}</span>
                     </a>
                 </div>
             </>

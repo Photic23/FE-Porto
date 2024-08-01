@@ -8,14 +8,14 @@
 
 .typewriter-text-sm{
   font-weight: 600;
-	font-size: 1.125rem; /* 18px */
-  line-height: 1.75rem; /* 28px */
+	font-size: 1rem; /* 16px */
+line-height: 1.5rem; /* 24px */
 }
 
 .typewriter-text{
   font-weight: 600;
-  font-size: 2.25rem; /* 36px */
-  line-height: 2.5rem; /* 40px */
+	font-size: 1.875rem; /* 30px */
+line-height: 2.25rem; /* 36px */
 }
 
 
@@ -32,7 +32,6 @@
 }
 
 .App-header {
-  background-color: #fff;
   z-index: 2;
   min-height: 100vh;
   display: flex;
@@ -45,7 +44,6 @@
 
 .Footer {
   font-weight: 500;
-  background-color: #fff;
   position: fixed;
   bottom: 0;
   margin-bottom: 2.5vh;

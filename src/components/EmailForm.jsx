@@ -27,15 +27,15 @@ function EmailForm({isActive, closeFunc}) {
                 <div className='flex flex-col h-72 w-full items-center justify-evenly '>
                     <div className='w-full'>
                         <label htmlFor="email" className='font-semibold' >E-Mail Address</label>
-                        <input name='from_email' className='h-fit bg-slate-100 w-full flex items-center justify-center rounded border-2 border-black px-1 py-1' type="email" id='email' placeholder='Enter Your E-Mail Here' />
+                        <input name='from_email' className='h-fit bg-[#dff2ef] w-full flex items-center justify-center rounded border-2 border-black px-1 py-1' type="email" id='email' placeholder='Enter Your E-Mail Here' />
                     </div>
                     <div className='w-full'>
                         <label htmlFor="subject" className='font-semibold'>Subject</label>
-                        <input name='subject' className='h-fit bg-slate-100 w-full flex items-center justify-center rounded border-2 border-black px-1 py-1' type="text" id='subject' placeholder='Enter Your Subject Here'/>
+                        <input name='subject' className='h-fit bg-[#dff2ef] w-full flex items-center justify-center rounded border-2 border-black px-1 py-1' type="text" id='subject' placeholder='Enter Your Subject Here'/>
                     </div>
                     <div className='w-full'>
                         <label htmlFor="content" className='font-semibold'>Content</label>
-                        <input name='content' className='h-24 bg-slate-100 w-full flex items-center justify-center rounded border-2 border-black px-1 py-1' type="text" id='content' placeholder='Enter Your Content Here'/>
+                        <input name='content' className='h-24 bg-[#dff2ef] w-full flex items-center justify-center rounded border-2 border-black px-1 py-1' type="text" id='content' placeholder='Enter Your Content Here'/>
                     </div>
                     <div className='flex flex-row w-full items-center justify-center'>
                         <div className='w-1/2 ml-1'>

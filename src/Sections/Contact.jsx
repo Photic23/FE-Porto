@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import Button from '../components/Button';
 import EmailForm from '../components/EmailForm';
 
@@ -18,8 +17,8 @@ function Contact({isSmall}) {
     if(isSmall){
         return(
             <>
-                <div class="h-svh w-full px-2 py-2">
-                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1">
+                <div class="bg-transparent h-svh w-full px-8 py-8">
+                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[#B5DFCA]">
                         <div className='flex w-full items-center justify-center'>
                             {!mailForm && (
                                 <div className='flex flex-col h-72 w-3/4 md:w-1/2 lg:w-1/4 items-start justify-evenly mr-5'>
@@ -47,8 +46,8 @@ function Contact({isSmall}) {
     }else{
         return(
             <>
-                <div class="h-svh w-full px-2 py-2">
-                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1">
+                <div class="bg-transparent h-svh w-full px-8 py-8">
+                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[#B5DFCA]">
                         <div className='flex w-full items-center justify-center'>
                             <div className='flex flex-col h-72 w-1/4 items-start justify-evenly mr-5'>
                                 <div className='w-full border-b-4 border-black'>
