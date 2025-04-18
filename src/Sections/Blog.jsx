@@ -1,6 +1,5 @@
 import React from "react";
 import BlogButton from "../components/BlogButton";
-import {dataContainer} from "../Interface"
 
 
 function Blog(){
