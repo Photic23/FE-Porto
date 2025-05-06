@@ -38,7 +38,7 @@ function Nav({isSmall, changePage}){
                         <div className="flex flex-col items-center justify-center w-full"  ref={ref}>
                             <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={dummyFunc}/>
                             <Navbutton text={"Experience"} japText={"経験"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={dummyFunc}/>
-                            <Navbutton text={"Blog"} japText={"ブログ"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={dummyFunc}/>
+                            {/* <Navbutton text={"Blog"} japText={"ブログ"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={dummyFunc}/> */}
                             <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true} link={"#"} target={"_blank"} isPop={true} width={width} clickFunc={changePage} toggleClick={dummyFunc}></Navbutton>
                         </div>
                     </div>
@@ -52,7 +52,7 @@ function Nav({isSmall, changePage}){
                         <div className="items-center inline-flex">
                             <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"} isPop={false} clickFunc={changePage} toggleClick={dummyFunc}/>
                             <Navbutton text={"Experience"} japText={"経験"} isContact={false} link={"#"} isPop={false} clickFunc={changePage} toggleClick={dummyFunc}/>
-                            <Navbutton text={"Blog"} japText={"ブログ"} isContact={false} link={"#"} isPop={false} clickFunc={changePage} toggleClick={dummyFunc}/>
+                            {/* <Navbutton text={"Blog"} japText={"ブログ"} isContact={false} link={"#"} isPop={false} clickFunc={changePage} toggleClick={dummyFunc}/> */}
                             <Navbutton text={"Contact Me"} japText={"私に連絡して"} isContact={true} link={"#"} isPop={false} clickFunc={changePage} toggleClick={dummyFunc}/>
                         </div>
                     </div>
