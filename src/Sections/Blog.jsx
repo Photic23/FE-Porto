@@ -4,13 +4,6 @@ import BlogButton from "../components/BlogButton";
 
 function Blog(){
 
-    const tempData = {
-        listDataBlog : [
-            // {title:"Tes title", date:"12/08/2024", content:"orem ipsum dolor sit amet consectetur adipisicing elit. Maiores molestias quam enim ducimus voluptate ex blanditiis minus rerum molestiae quis, totam repellendus sapiente quas fugit beatae cum repudiandae perspiciatis porro."},
-            // {title:"Tes title2", date:"12/08/2024", content:"orem ipsum dolor sit amet consectetur adipisicing elit. Maiores molestias quam enim ducimus voluptate ex blanditiis minus rerum molestiae quis, totam repellendus sapiente quas fugit beatae cum repudiandae perspiciatis porro."},
-        ]
-    }
-
     return(
         <>
             <div className="bg-transparent h-svh w-full px-8 py-8">
