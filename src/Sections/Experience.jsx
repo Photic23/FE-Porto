@@ -22,7 +22,7 @@ function Experience({isSmall}) {
             institution: "Universitas Indonesia",
             degree: "Bachelor of Information Systems",
             period: "2021 - Present",
-            description: "Currently in 3rd year with focus on information systems development and management."
+            description: "Currently in 3rd year with focus on software development."
         },
     ];
     
