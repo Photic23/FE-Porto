@@ -47,7 +47,7 @@ function Nav({isSmall, changePage}){
                 <nav className="fixed w-full px-8 py-8" >
                     <div className="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1 bg-[#A1CDA8]">
                         <div className="buttonName">
-                            <Namebutton text={"Photic"} link={"#first-container"} ></Namebutton>
+                            <Namebutton text={"Photic"} link={"/"} ></Namebutton>
                         </div>
                         <div className="items-center inline-flex">
                             <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"} isPop={false} clickFunc={changePage} toggleClick={dummyFunc}/>
@@ -79,7 +79,7 @@ function Nav({isSmall, changePage}){
                     <nav className="fixed w-full px-8 py-8" >
                         <div className="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1 bg-[#A1CDA8]">
                             <div className="buttonName">
-                                <Namebutton text={"Photic"} link={"#first-container"}></Namebutton>
+                                <Namebutton text={"Photic"} link={"/"}></Namebutton>
                             </div>
                             <div className="items-center inline-flex">                        
                                 <PopButton toggleButton={toggleOpenedNav} isActive={openedNav} ></PopButton>
@@ -107,7 +107,7 @@ function Nav({isSmall, changePage}){
                     <nav className="fixed w-full px-8 py-8" >
                         <div className="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1 bg-[#A1CDA8]">
                             <div className="buttonName">
-                                <Namebutton text={"Photic"} link={"#first-container"}></Namebutton>
+                                <Namebutton text={"Photic"} link={"/"}></Namebutton>
                             </div>
                             <div className="items-center inline-flex ">
                                 <PopButton toggleButton={toggleOpenedNav} isActive={openedNav} ></PopButton>                            
