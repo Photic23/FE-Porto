@@ -24,6 +24,12 @@ function Experience({isSmall}) {
             period: "2022 - Present",
             description: "Currently in 3rd year with focus on software development."
         },
+        {
+            institution: "Fast Offer International Japanese Language Program",
+            degree: "-",
+            period: "2024 - Present",
+            description: "Currently on my 3rd semester of this program."
+        },
     ];
     
     // Formal Experience data
