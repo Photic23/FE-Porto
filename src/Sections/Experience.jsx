@@ -25,8 +25,8 @@ function Experience({isSmall}) {
             description: "Currently in 3rd year with focus on software development."
         },
         {
-            institution: "Fast Offer International Japanese Language Program",
-            degree: "-",
+            institution: "-",
+            degree: "Fast Offer International Japanese Language Program",
             period: "2024 - Present",
             description: "Currently on my 3rd semester of this program."
         },
