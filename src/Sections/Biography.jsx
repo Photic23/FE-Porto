@@ -2,6 +2,7 @@ import React from 'react';
 import GamingHutao from'../porto-pic.jpg';
 import Navbutton from '../components/navbutton';
 import Typewriter from 'typewriter-effect';
+import SpotifyPlayer from '../components/SpotifyPlayer';
 
 
 function Biography({isSmall}) {
@@ -47,6 +48,9 @@ function Biography({isSmall}) {
                                 <Navbutton text={"Linkedin"} japText={"リンクトイン"} isContact={false} link={"https://www.linkedin.com/in/naufalmahdy/"} target={"_blank"} toggleClick={dummyFunc} clickFunc={dummyFunc2}/>
                                 <Navbutton text={"Github"} japText={"ギットハブ"} isContact={false} link={"https://github.com/Photic23"} target={"_blank"} toggleClick={dummyFunc} clickFunc={dummyFunc}/>
                             </div>
+                            <div className="mt-2">
+                                <SpotifyPlayer />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,6 +84,9 @@ function Biography({isSmall}) {
                                 <div class="inline-flex">
                                     <Navbutton text={"Linkedin"} japText={"リンクトイン"} isContact={false} link={"https://www.linkedin.com/in/naufalmahdy/"} target={"_blank"} toggleClick={dummyFunc} clickFunc={dummyFunc2}/>
                                     <Navbutton text={"Github"} japText={"ギットハブ"} isContact={false} link={"https://github.com/Photic23"} target={"_blank"} toggleClick={dummyFunc} clickFunc={dummyFunc2}/>
+                                </div>
+                                <div className="mt-2">
+                                    <SpotifyPlayer />
                                 </div>
                             </div>
                             <div class="flex h-3/5 w-fit items-start justify-start">
