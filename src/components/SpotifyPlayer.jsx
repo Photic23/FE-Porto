@@ -2,35 +2,88 @@ import React, { useState, useEffect } from 'react';
 
 const SPOTIFY_CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const REDIRECT_URI = process.env.NODE_ENV === 'production' 
-    ? 'https://photic23.vercel.app/'  // Replace with your actual Vercel domain
+    ? 'https://photic23.vercel.app/'
     : 'http://localhost:3000';
+
+// PKCE helper functions
+function generateRandomString(length) {
+    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const values = crypto.getRandomValues(new Uint8Array(length));
+    return values.reduce((acc, x) => acc + possible[x % possible.length], "");
+}
+
+async function generateCodeChallenge(codeVerifier) {
+    const data = new TextEncoder().encode(codeVerifier);
+    const digest = await window.crypto.subtle.digest('SHA-256', data);
+    return btoa(String.fromCharCode.apply(null, [...new Uint8Array(digest)]))
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '');
+}
 
 function SpotifyPlayer() {
     const [token, setToken] = useState('');
     const [currentTrack, setCurrentTrack] = useState(null);
-    console.log(SPOTIFY_CLIENT_ID);
     
-
     useEffect(() => {
-        // Get token from URL if redirected from Spotify
-        const hash = window.location.hash
-            .substring(1)
-            .split('&')
-            .reduce((initial, item) => {
-                let parts = item.split('=');
-                initial[parts[0]] = decodeURIComponent(parts[1]);
-                return initial;
-            }, {});
-
-        if (hash.access_token) {
-            setToken(hash.access_token);
-            window.location.hash = '';
+        // Handle the callback from Spotify
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        
+        if (code) {
+            // Exchange code for token
+            const codeVerifier = localStorage.getItem('code_verifier');
+            
+            const getToken = async () => {
+                const response = await fetch('https://accounts.spotify.com/api/token', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        grant_type: 'authorization_code',
+                        code: code,
+                        redirect_uri: REDIRECT_URI,
+                        client_id: SPOTIFY_CLIENT_ID,
+                        code_verifier: codeVerifier,
+                    }),
+                });
+                
+                const data = await response.json();
+                if (data.access_token) {
+                    setToken(data.access_token);
+                    // Store refresh token if needed
+                    localStorage.setItem('refresh_token', data.refresh_token);
+                    // Clean up URL
+                    window.history.replaceState({}, document.title, "/");
+                }
+            };
+            
+            getToken();
         }
     }, []);
 
-    const login = () => {
+    const login = async () => {
+        const codeVerifier = generateRandomString(128);
+        const codeChallenge = await generateCodeChallenge(codeVerifier);
+        
+        // Store the code verifier for later use
+        localStorage.setItem('code_verifier', codeVerifier);
+        
         const scope = 'user-read-currently-playing';
-        window.location.href = `https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${scope}&response_type=token`;
+        const authUrl = new URL('https://accounts.spotify.com/authorize');
+        
+        const params = {
+            response_type: 'code',
+            client_id: SPOTIFY_CLIENT_ID,
+            scope: scope,
+            code_challenge_method: 'S256',
+            code_challenge: codeChallenge,
+            redirect_uri: REDIRECT_URI,
+        };
+        
+        authUrl.search = new URLSearchParams(params).toString();
+        window.location.href = authUrl.toString();
     };
 
     useEffect(() => {
@@ -47,6 +100,10 @@ function SpotifyPlayer() {
                 if (response.status === 200) {
                     const data = await response.json();
                     setCurrentTrack(data);
+                } else if (response.status === 401) {
+                    // Token expired, need to refresh
+                    console.log('Token expired');
+                    // Implement refresh logic here if needed
                 }
             } catch (error) {
                 console.error('Error fetching current track:', error);
@@ -54,7 +111,7 @@ function SpotifyPlayer() {
         };
 
         fetchCurrentTrack();
-        const interval = setInterval(fetchCurrentTrack, 5000); // Update every 5 seconds
+        const interval = setInterval(fetchCurrentTrack, 5000);
 
         return () => clearInterval(interval);
     }, [token]);
@@ -100,4 +157,4 @@ function SpotifyPlayer() {
     );
 }
 
-export default SpotifyPlayer; 
+export default SpotifyPlayer;
