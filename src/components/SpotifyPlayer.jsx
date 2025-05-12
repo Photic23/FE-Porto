@@ -4,7 +4,7 @@ const SPOTIFY_CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const REDIRECT_URI = process.env.NODE_ENV === 'production' 
     ? 'https://photic23.vercel.app/'
     : 'http://localhost:3000/';
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://be-photic23.vercel.app';
 
 // PKCE helper functions
 function generateRandomString(length) {
@@ -28,11 +28,18 @@ function SpotifyPlayer() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // Debug: Log environment variables
+    useEffect(() => {
+        console.log('Backend URL:', BACKEND_URL);
+        console.log('Spotify Client ID:', SPOTIFY_CLIENT_ID);
+        console.log('Redirect URI:', REDIRECT_URI);
+    }, []);
+
     // Check if user is authorized on backend
     useEffect(() => {
         checkAuthStatus();
         
-        // Start polling for current track regardless of auth status
+        // Start polling for current track
         fetchPublicTrack();
         const interval = setInterval(fetchPublicTrack, 5000);
         
@@ -42,7 +49,16 @@ function SpotifyPlayer() {
     // Fetch the currently playing track from your backend
     const fetchPublicTrack = async () => {
         try {
-            const response = await fetch(`${BACKEND_URL}/api/current-track`);
+            const response = await fetch(`${BACKEND_URL}/api/current-track`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                mode: 'cors',
+                credentials: 'include',
+            });
+            
             if (response.ok) {
                 const data = await response.json();
                 setCurrentTrack(data);
@@ -52,7 +68,7 @@ function SpotifyPlayer() {
             }
         } catch (error) {
             console.error('Error fetching current track:', error);
-            setError('Failed to connect to backend');
+            // Don't set error for track fetching to avoid constant error messages
         }
     };
 
@@ -61,15 +77,24 @@ function SpotifyPlayer() {
         setIsLoading(true);
         try {
             const response = await fetch(`${BACKEND_URL}/api/auth-status`, {
-                credentials: 'include',
+                method: 'GET',
                 headers: {
                     'Accept': 'application/json',
-                }
+                    'Content-Type': 'application/json',
+                },
+                mode: 'cors',
+                credentials: 'include',
             });
+            
+            console.log('Auth status response:', response.status);
             
             if (response.ok) {
                 const data = await response.json();
+                console.log('Auth data:', data);
                 setIsAuthorized(data.authorized);
+                setError(null);
+            } else {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
         } catch (error) {
             console.error('Error checking auth status:', error);
@@ -99,16 +124,14 @@ function SpotifyPlayer() {
                             codeVerifier,
                             redirectUri: REDIRECT_URI
                         }),
+                        mode: 'cors',
                         credentials: 'include'
                     });
                     
                     if (response.ok) {
                         setIsAuthorized(true);
-                        // Clean up URL
                         window.history.replaceState({}, document.title, "/");
-                        // Clear the code verifier
                         localStorage.removeItem('code_verifier');
-                        // Fetch current track immediately
                         fetchPublicTrack();
                     } else {
                         const errorData = await response.json();
@@ -126,10 +149,14 @@ function SpotifyPlayer() {
 
     const login = async () => {
         try {
+            if (!SPOTIFY_CLIENT_ID) {
+                setError('Spotify Client ID not configured');
+                return;
+            }
+
             const codeVerifier = generateRandomString(128);
             const codeChallenge = await generateCodeChallenge(codeVerifier);
             
-            // Store the code verifier for later use
             localStorage.setItem('code_verifier', codeVerifier);
             
             const scope = 'user-read-currently-playing';
@@ -156,6 +183,7 @@ function SpotifyPlayer() {
         try {
             const response = await fetch(`${BACKEND_URL}/api/logout`, {
                 method: 'POST',
+                mode: 'cors',
                 credentials: 'include'
             });
             
