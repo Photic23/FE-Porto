@@ -44,7 +44,7 @@ function Biography({isSmall}) {
                                 </div>
                             </div>
                             <p class="text-sm font-medium my-1">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love manga or light novel reading on my free time.</p>
-                            <div className="mt-2">
+                            <div className="my-2">
                                 <SpotifyPlayer />
                             </div>
                             <div class="inline-flex my-1">
@@ -81,7 +81,7 @@ function Biography({isSmall}) {
                                     </div>
                                 </div>
                                 <p class="text-base font-medium">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love manga or light novel reading on my free time.</p>
-                                <div className="mt-2">
+                                <div className="my-2">
                                     <SpotifyPlayer />
                                 </div>
                                 <div class="inline-flex">
