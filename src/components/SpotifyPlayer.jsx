@@ -8,6 +8,8 @@ function SpotifyPlayer() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
     const [needsAuth, setNeedsAuth] = useState(false);
+    const [retryCount, setRetryCount] = useState(0);
+    const [lastSuccessTime, setLastSuccessTime] = useState(null);
 
     const fetchCurrentTrack = useCallback(async () => {
         try {
@@ -19,11 +21,25 @@ function SpotifyPlayer() {
                 setNeedsAuth(true);
                 setError(data.details || 'Please re-authenticate with Spotify');
                 setCurrentTrack(null);
+                setRetryCount(prev => prev + 1);
+                
+                // If we've had multiple auth failures, this is a persistent issue
+                if (retryCount > 2) {
+                    console.error('Persistent auth failure detected');
+                }
                 return;
             }
             
             // Check for other errors
             if (data?.error) {
+                // If it's a temporary error and we had success before, keep trying
+                if (data.retry && lastSuccessTime && retryCount < 3) {
+                    console.log('Temporary error, will retry');
+                    setRetryCount(prev => prev + 1);
+                    setTimeout(fetchCurrentTrack, 2000);
+                    return;
+                }
+                
                 setError(data.details || data.error);
                 setCurrentTrack(null);
                 return;
@@ -33,13 +49,20 @@ function SpotifyPlayer() {
             setCurrentTrack(data);
             setError(null);
             setNeedsAuth(false);
+            setRetryCount(0); // Reset retry count on success
+            setLastSuccessTime(Date.now());
         } catch (error) {
             console.error('Error fetching current track:', error);
             setError('Failed to connect to backend');
+            
+            // If we had recent success, this might be temporary
+            if (lastSuccessTime && Date.now() - lastSuccessTime < 60000) {
+                console.log('Recent success detected, treating as temporary failure');
+            }
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [retryCount, lastSuccessTime]);
 
     useEffect(() => {
         // Fetch immediately
