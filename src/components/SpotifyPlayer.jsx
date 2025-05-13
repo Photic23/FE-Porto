@@ -107,7 +107,7 @@ function SpotifyPlayer() {
             : 0;
 
         return (
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-4 shadow-sm">
+            <div className="bg-black/5 backdrop-blur-sm rounded-lg p-4 shadow-sm">
                 <div className="flex items-start gap-4">
                     {currentTrack.image && (
                         <img 
@@ -161,6 +161,7 @@ function SpotifyPlayer() {
             </svg>
             <div>
                 <p className="text-sm font-medium">No music playing</p>
+                <p className="text-xs text-gray-400">Play something on Spotify to see it here</p>
             </div>
         </div>
     );
