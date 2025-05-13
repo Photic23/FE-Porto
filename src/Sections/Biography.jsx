@@ -4,7 +4,6 @@ import Navbutton from '../components/navbutton';
 import Typewriter from 'typewriter-effect';
 import SpotifyPlayer from '../components/SpotifyPlayer';
 import SpotifyDebug from '../components/SpotifyDebug';
-import TokenGrabber from '../components/TokenGrabber';
 
 
 function Biography({isSmall}) {
@@ -47,7 +46,7 @@ function Biography({isSmall}) {
                             </div>
                             <p class="text-sm font-medium my-1">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love reading manga or light novel on my free time.</p>
                             <div className="my-2">
-                                <TokenGrabber />
+                                <SpotifyPlayer />
                             </div>
                             <div class="inline-flex my-1">
                                 <Navbutton text={"Linkedin"} japText={"リンクトイン"} isContact={false} link={"https://www.linkedin.com/in/naufalmahdy/"} target={"_blank"} toggleClick={dummyFunc} clickFunc={dummyFunc2}/>
@@ -84,7 +83,7 @@ function Biography({isSmall}) {
                                 </div>
                                 <p class="text-base font-medium">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love reading manga or light novel on my free time.</p>
                                 <div className="my-2">
-                                    <TokenGrabber />
+                                    <SpotifyPlayer />
                                 </div>
                                 <div class="inline-flex">
                                     <Navbutton text={"Linkedin"} japText={"リンクトイン"} isContact={false} link={"https://www.linkedin.com/in/naufalmahdy/"} target={"_blank"} toggleClick={dummyFunc} clickFunc={dummyFunc2}/>
