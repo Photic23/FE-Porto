@@ -43,7 +43,7 @@ function Biography({isSmall}) {
                                     />
                                 </div>
                             </div>
-                            <p class="text-sm font-medium my-1">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love manga or light novel reading on my free time.</p>
+                            <p class="text-sm font-medium my-1">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love reading manga or light novel on my free time.</p>
                             <div className="my-2">
                                 <SpotifyPlayer />
                             </div>
@@ -80,7 +80,7 @@ function Biography({isSmall}) {
                                         />
                                     </div>
                                 </div>
-                                <p class="text-base font-medium">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love manga or light novel reading on my free time.</p>
+                                <p class="text-base font-medium">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love reading manga or light novel on my free time.</p>
                                 <div className="my-2">
                                     <SpotifyPlayer />
                                 </div>
