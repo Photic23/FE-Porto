@@ -1,4 +1,4 @@
-// Simplified SpotifyPlayer component
+// Simplified SpotifyPlayer.js - Just displays what's playing
 import React, { useState, useEffect } from 'react';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://be-photic23.vercel.app';
@@ -8,14 +8,16 @@ function SpotifyPlayer() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Start polling for current track
-        fetchPublicTrack();
-        const interval = setInterval(fetchPublicTrack, 5000);
+        // Fetch immediately
+        fetchCurrentTrack();
+        
+        // Poll every 5 seconds
+        const interval = setInterval(fetchCurrentTrack, 5000);
         
         return () => clearInterval(interval);
     }, []);
 
-    const fetchPublicTrack = async () => {
+    const fetchCurrentTrack = async () => {
         try {
             const response = await fetch(`${BACKEND_URL}/api/current-track`);
             
@@ -37,7 +39,7 @@ function SpotifyPlayer() {
                 <button 
                     onClick={() => {
                         setError(null);
-                        fetchPublicTrack();
+                        fetchCurrentTrack();
                     }}
                     className="ml-2 text-blue-600 hover:underline"
                 >
