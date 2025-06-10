@@ -38,7 +38,7 @@ function Experience({isSmall}) {
             title: "Software Engineer Intern",
             company: "Sokratech",
             period: "June 2025 - Present",
-            description: "",
+            description: "Currently learning and exploring the current system",
             skills: []
         },
         {
