@@ -35,8 +35,15 @@ function Experience({isSmall}) {
     // Formal Experience data
     const formalExperience = [
         {
+            title: "Software Engineer Intern",
+            company: "Sokratech",
+            period: "June 2025 - Present",
+            description: Null,
+            skills: []
+        },
+        {
             title: "Teaching Assistant of Security Driven Software Development",
-            company: "Fculty of Computer Science, Universitas Indonesia",
+            company: "Faculty of Computer Science, Universitas Indonesia",
             period: "January 2025 - Present",
             description: "Scored assignemnts, answering questions regarding the lecture or assignments, helped students with their assignments.",
             skills: []
