@@ -25,7 +25,7 @@ function Experience({isSmall}) {
             description: "Currently in 3rd year with focus on software development."
         },
         {
-            institution: "-",
+            institution: "Pusat Studi Jepang UI",
             degree: "Fast Offer International Japanese Language Program",
             period: "2024 - Present",
             description: "Currently on my 3rd semester of this program."
@@ -38,7 +38,7 @@ function Experience({isSmall}) {
             title: "Software Engineer Intern",
             company: "Sokratech",
             period: "June 2025 - Present",
-            description: "Currently learning and exploring the current system",
+            description: "Working on the risk decisioning platform",
             skills: []
         },
         {
