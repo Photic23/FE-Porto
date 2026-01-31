@@ -17,7 +17,7 @@ function Biography({isSmall}) {
     if(isSmall){
         return(
             <div class="bg-transparent h-svh w-full px-8 py-8" id='first-container'>
-                <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[#B5DFCA]">
+                <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[var(--bg-main)]">
                     <div class="flex flex-col items-center justify-center">
                         <div class="flex h-40 w-max items-end justify-start mb-2">
                             {/* top container */}
@@ -43,7 +43,7 @@ function Biography({isSmall}) {
                                     />
                                 </div>
                             </div>
-                            <p class="text-sm font-medium my-1">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love reading manga or light novel on my free time.</p>
+                            <p class="text-sm font-medium my-1">An Information Systems student at Universitas Indonesia. Currently on my final year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love reading manga or light novel on my free time.</p>
                             {/* <div className="my-2">
                                 <SpotifyPlayer />
                             </div> */}
@@ -60,7 +60,7 @@ function Biography({isSmall}) {
         return(
             <>
                 <div class="bg-transparent h-svh w-full px-8 py-8" id='first-container' >
-                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black  py-1 bg-[#B5DFCA]">
+                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black  py-1 bg-[var(--bg-main)]">
                         <div class="flex items-center justify-center">
                             <div class="flex flex-col h-72 w-2/5 items-start justify-evenly px-5">
                                 {/* left container */}
@@ -80,7 +80,7 @@ function Biography({isSmall}) {
                                         />
                                     </div>
                                 </div>
-                                <p class="text-base font-medium">An Information Systems student at Universitas Indonesia. Currently on my 3rd year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love reading manga or light novel on my free time.</p>
+                                <p class="text-base font-medium">An Information Systems student at Universitas Indonesia. Currently on my final year. Motivated to create positive impact, learn and explore new experience, earn new ability, improve my capability, broaden my knowledge. I also love reading manga or light novel on my free time.</p>
                                 {/* <div className="my-2">
                                     <SpotifyPlayer />
                                 </div> */}

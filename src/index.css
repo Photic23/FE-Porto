@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-main: #F9E1E5;
+  --nav-footer: #F1ACB1;
+  --active-state: #A41300;
+  --inactive-state: #F7B1B9;
+  --input-bg: #FDF4F5;
+  --accent-card: #E87965;
+  --text-primary: #401010;
+}
+
 body {
   margin: 0;
   font-family: system-ui;

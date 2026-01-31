@@ -25,7 +25,7 @@ function Card({page, isSmall}) {
     } else {
         return (
             <div className="h-svh w-full px-2 py-2">
-                <div className="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[#ecc9b5]">
+                <div className="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[var(--accent-card)]">
                     <p className="text-4xl font-semibold mx-1">This site is under development </p>
                 </div>
             </div>

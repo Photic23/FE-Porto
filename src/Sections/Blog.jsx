@@ -7,7 +7,7 @@ function Blog(){
     return(
         <>
             <div className="bg-transparent h-svh w-full px-8 py-8">
-                <div className="flex h-full w-full items-center justify-center rounded border-2 border-black bg-[#B5DFCA] overflow-auto">
+                <div className="flex h-full w-full items-center justify-center rounded border-2 border-black bg-[var(--bg-main)] overflow-auto">
                     <BlogButton></BlogButton>
                 </div>
             </div>

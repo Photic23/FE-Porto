@@ -35,9 +35,16 @@ function Experience({isSmall}) {
     // Formal Experience data
     const formalExperience = [
         {
+            title: "Software Engineer",
+            company: "Sokratech",
+            period: "December 2025 - Present",
+            description: "Working on the risk decisioning platform",
+            skills: []
+        },
+        {
             title: "Software Engineer Intern",
             company: "Sokratech",
-            period: "June 2025 - Present",
+            period: "June 2025 - December 2025",
             description: "Working on the risk decisioning platform",
             skills: []
         },
@@ -289,7 +296,7 @@ function Experience({isSmall}) {
         return(
             <div className="bg-transparent h-svh w-full px-8 py-8">
                 <style>{scrollbarHideStyles}</style>
-                <div className="h-full w-full flex flex-col rounded border-2 border-black bg-[#B5DFCA]">
+                <div className="h-full w-full flex flex-col rounded border-2 border-black bg-[var(--bg-main)]">
                     {/* Fixed header with title */}
                     <div className="w-full border-b-4 border-black px-4 py-4 pt-14">
                         <h1 className="text-3xl font-bold">Experiences</h1>
@@ -297,7 +304,7 @@ function Experience({isSmall}) {
                     </div>
                     
                     {/* Fixed tab navigation */}
-                    <div className="w-full border-b-2 border-black bg-[#B5DFCA] px-1 py-2 overflow-x-auto no-scrollbar">
+                    <div className="w-full border-b-2 border-black bg-[var(--bg-main)] px-1 py-2 overflow-x-auto no-scrollbar">
                         <div ref={tabsContainerRef} className="flex space-x-1 min-w-max">
                             <TabButton 
                                 text="Education" 
@@ -339,7 +346,7 @@ function Experience({isSmall}) {
         return(
             <div className="bg-transparent h-svh w-full px-8 py-8">
                 <style>{scrollbarHideStyles}</style>
-                <div className="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[#B5DFCA]">
+                <div className="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[var(--bg-main)]">
                     <div className="flex flex-col items-start justify-start h-full w-4/5 overflow-y-auto no-scrollbar py-20 px-6">
                         <div className="w-full border-b-4 border-black mb-8">
                             <h1 className="text-5xl font-bold">Experiences</h1>

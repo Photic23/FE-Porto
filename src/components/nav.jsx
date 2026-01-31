@@ -34,7 +34,7 @@ function Nav({isSmall, changePage}){
             <>
                 {/* dummy nav for size ref i guess, i forgot lmao*/}
                 <div className="hidden fixed h-svh w-full px-8 py-8" >
-                    <div className="h-full w-full flex items-center justify-center rounded border-2 border-black py-1 bg-[#A1CDA8]">
+                    <div className="h-full w-full flex items-center justify-center rounded border-2 border-black py-1 bg-[var(--nav-footer)]">
                         <div className="flex flex-col items-center justify-center w-full"  ref={ref}>
                             <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={dummyFunc}/>
                             <Navbutton text={"Experience"} japText={"経験"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={dummyFunc}/>
@@ -45,7 +45,7 @@ function Nav({isSmall, changePage}){
                 </div>
                 {/* popped up nav */}
                 <nav className="fixed w-full px-8 py-8" >
-                    <div className="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1 bg-[#A1CDA8]">
+                    <div className="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1 bg-[var(--nav-footer)]">
                         <div className="buttonName">
                             <Namebutton text={"Photic"} link={"/"} ></Namebutton>
                         </div>
@@ -66,7 +66,7 @@ function Nav({isSmall, changePage}){
                 <>
                 {/* popped up nav */}
                     <div className="fixed h-svh w-full px-8 py-8" >
-                        <div className="h-full w-full flex items-center justify-center rounded border-2 border-black py-1 bg-[#A1CDA8]">
+                        <div className="h-full w-full flex items-center justify-center rounded border-2 border-black py-1 bg-[var(--nav-footer)]">
                             <div className="flex flex-col items-center justify-center w-full" ref={ref}>
                                 <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={toggleOpenedNav}/>
                                 <Navbutton text={"Experience"} japText={"経験"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={toggleOpenedNav}/>
@@ -77,7 +77,7 @@ function Nav({isSmall, changePage}){
                     </div>
                     {/* popped up nav */}
                     <nav className="fixed w-full px-8 py-8" >
-                        <div className="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1 bg-[#A1CDA8]">
+                        <div className="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1 bg-[var(--nav-footer)]">
                             <div className="buttonName">
                                 <Namebutton text={"Photic"} link={"/"}></Namebutton>
                             </div>
@@ -94,7 +94,7 @@ function Nav({isSmall, changePage}){
                 <>
                 {/* popped up nav but hidden */}
                     <div className="hidden fixed h-svh w-full px-8 py-8" >
-                        <div className="h-full w-full flex items-center justify-center rounded border-2 border-black py-1 bg-[#A1CDA8]">
+                        <div className="h-full w-full flex items-center justify-center rounded border-2 border-black py-1 bg-[var(--nav-footer)]">
                             <div className="flex flex-col items-center justify-center w-full" ref={ref}>
                                 <Navbutton text={"About Me"} japText={"自分"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={dummyFunc}/>
                                 <Navbutton text={"Experience"} japText={"経験"} isContact={false} link={"#"} isPop={true} width={width} clickFunc={changePage} toggleClick={dummyFunc}/>
@@ -105,7 +105,7 @@ function Nav({isSmall, changePage}){
                     </div>
                     {/* popped up nav */}
                     <nav className="fixed w-full px-8 py-8" >
-                        <div className="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1 bg-[#A1CDA8]">
+                        <div className="w-full inline-flex justify-between rounded border-2 border-black px-1 py-1 bg-[var(--nav-footer)]">
                             <div className="buttonName">
                                 <Namebutton text={"Photic"} link={"/"}></Namebutton>
                             </div>

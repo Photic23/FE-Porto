@@ -18,7 +18,7 @@ function Contact({isSmall}) {
         return(
             <>
                 <div class="bg-transparent h-svh w-full px-8 py-8">
-                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[#B5DFCA]">
+                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[var(--bg-main)]">
                         <div className='flex w-full items-center justify-center'>
                             {!mailForm && (
                                 <div className='flex flex-col h-72 w-3/4 md:w-1/2 lg:w-1/4 items-start justify-evenly mr-5'>
@@ -47,7 +47,7 @@ function Contact({isSmall}) {
         return(
             <>
                 <div class="bg-transparent h-svh w-full px-8 py-8">
-                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[#B5DFCA]">
+                    <div class="h-full w-full flex items-center justify-center rounded border-2 border-black px-1 py-1 bg-[var(--bg-main)]">
                         <div className='flex w-full items-center justify-center'>
                             <div className='flex flex-col h-72 w-1/4 items-start justify-evenly mr-5'>
                                 <div className='w-full border-b-4 border-black'>
