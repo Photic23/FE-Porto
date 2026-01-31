@@ -11,9 +11,11 @@ const sm = useMediaQuery("only screen and (max-width : 767px)");
 const md = useMediaQuery(
     "only screen and (min-width : 768px) and (max-width : 1023px)"
 );
+// eslint-disable-next-line no-unused-vars
 const lg = useMediaQuery(
     "only screen and (min-width : 1024px) and (max-width : 1279px)"
 );
+// eslint-disable-next-line no-unused-vars
 const xl = useMediaQuery(
     "only screen and (min-width : 1280px)"
 );

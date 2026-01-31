@@ -2,7 +2,9 @@ import React from 'react';
 import GamingHutao from'../porto-pic.jpg';
 import Navbutton from '../components/navbutton';
 import Typewriter from 'typewriter-effect';
+// eslint-disable-next-line no-unused-vars
 import SpotifyPlayer from '../components/SpotifyPlayer';
+// eslint-disable-next-line no-unused-vars
 import SpotifyDebug from '../components/SpotifyDebug';
 
 function Biography({isSmall}) {
