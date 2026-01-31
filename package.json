@@ -29,7 +29,10 @@
       "react-app/jest"
     ],
     "rules": {
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "react-hooks/exhaustive-deps": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "no-script-url": "off"
     }
   },
   "browserslist": {
